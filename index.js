@@ -1,10 +1,10 @@
 let var1 = 0
 let var2 = 0
-let curr = 0
-let operator = "+"
+let operator = ""
 const display = document.querySelector("#display")
 
 function multiply(var1, var2) {
+    // did it like this so that var1 is set to answer and ready for the nxt equation
     temp = var1
     var1 = temp + var2
 }
@@ -30,7 +30,6 @@ function display(text) {
 function clear() {
     var1 = 0
     var2 = 0
-    curr = 0
     operator = ""
     display.textContent = ""
 }
