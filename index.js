@@ -1,7 +1,7 @@
 let var1 = 0
 let var2 = 0
 let operator = "+"
-
+const display = document.querySelector("#display")
 
 function multiply(var1, var2) {
     return var1 * var2
@@ -19,9 +19,13 @@ function subtract(var1,var2) {
     return var1-var2
 }
 
+// outputs text to calc display
+function display(text) {
+    display.textContent = f`${text}`
+}
+
 // Resets vars and display
 function clear() {
-    const display = document.querySelector("#display")
     var1 = 0
     var2 = 0
     operator = ""
