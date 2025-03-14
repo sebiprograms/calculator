@@ -1,10 +1,12 @@
 let var1 = 0
 let var2 = 0
+let curr = 0
 let operator = "+"
 const display = document.querySelector("#display")
 
 function multiply(var1, var2) {
-    return var1 * var2
+    temp = var1
+    var1 = temp + var2
 }
 
 function divide(var1, var2) {
@@ -28,6 +30,7 @@ function display(text) {
 function clear() {
     var1 = 0
     var2 = 0
+    curr = 0
     operator = ""
     display.textContent = ""
 }
