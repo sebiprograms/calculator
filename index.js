@@ -2,7 +2,11 @@ let var1 = 0
 let var2 = 0
 let operator = ""
 const display = document.querySelector("#display")
-
+const clrbtn = document.querySelector("#clear")
+const addbtn = document.querySelector("#add")
+const multbtn = document.querySelector("#multiply")
+const subbtn = document.querySelector("#subtract")
+const dividebtn = document.querySelector("#divide")
 function multiply(var1, var2) {
     // did it like this so that var1 is set to answer and ready for the nxt equation
     temp = var1
@@ -23,7 +27,7 @@ function subtract(var1,var2) {
 
 // outputs text to calc display
 function updateDisplay(input) {
-    display.textContent = `${input}`
+    display.textContent += `${input}`
 }
 
 // Resets vars and display
@@ -34,7 +38,9 @@ function clear() {
     display.textContent = ""
 }
 
+function equals(var1, operator, var2) {
 
+}
 // operator recieved from button id, then called on eventlistener
 function operate(var1, operator, var2) {
     if (operator == "*") {
@@ -48,14 +54,20 @@ function operate(var1, operator, var2) {
     }
 }
 
+clrbtn.addEventListener("click", () => {
+    clear()
+})
+
 // returns num when corresponding button pressed
 for (let i =0; i <= 9; i++) {
     const button = document.querySelectorAll(".num")
     button[i].value = i
 
     button[i].addEventListener("click", (e) => {
-        console.log(button[i].value)
         updateDisplay(button[i].value)
-        return button[i].value
+        if (display.textContent == button[i].value) {
+
+        }
+        
     })
 }
