@@ -22,8 +22,8 @@ function subtract(var1,var2) {
 }
 
 // outputs text to calc display
-function display(text) {
-    display.textContent = f`${text}`
+function updateDisplay(input) {
+    display.textContent = `${input}`
 }
 
 // Resets vars and display
@@ -33,6 +33,7 @@ function clear() {
     operator = ""
     display.textContent = ""
 }
+
 
 // operator recieved from button id, then called on eventlistener
 function operate(var1, operator, var2) {
@@ -47,3 +48,13 @@ function operate(var1, operator, var2) {
     }
 }
 
+
+for (let i =0; i <= 9; i++) {
+    const button = document.querySelectorAll(".num")
+    button[i].value = i
+
+    button[i].addEventListener("click", (e) => {
+        console.log(button[i].value)
+        return e.value
+    })
+}
