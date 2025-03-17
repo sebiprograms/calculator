@@ -48,13 +48,14 @@ function operate(var1, operator, var2) {
     }
 }
 
-
+// returns num when corresponding button pressed
 for (let i =0; i <= 9; i++) {
     const button = document.querySelectorAll(".num")
     button[i].value = i
 
     button[i].addEventListener("click", (e) => {
         console.log(button[i].value)
-        return e.value
+        updateDisplay(button[i].value)
+        return button[i].value
     })
 }
