@@ -15,15 +15,15 @@ function multiply(var1, var2) {
        return var1 * var1
     }
     
-    // allows to do another equation on answer
-    return temp * var2
+    return var1 * var2
 }
 
 function divide(var1, var2) {
     if (var2 == undefined){
         return var1 / var1
     }
-    return temp / var2
+
+    return var1 / var2
 }
 
 function add(var1, var2) {
@@ -31,7 +31,7 @@ function add(var1, var2) {
         return var1 + var1
     }
 
-    return temp + var2
+    return var1 + var2
 }
 
 function subtract(var1,var2) {
