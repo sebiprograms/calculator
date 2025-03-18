@@ -40,7 +40,7 @@ function clear() {
 }
 // returns boolean depending on if arthimetic operator has been selected
 function operatorPushed() {
-    if (operator == ""){
+    if (operator === ""){
         return false
     } else {
         return true
@@ -61,8 +61,24 @@ function operate(var1, operator, var2) {
     }
 }
 
+
+// option events
+
 clrbtn.addEventListener("click", () => {
     clear()
+})
+
+addbtn.addEventListener("click", () => {
+    operator = "+"
+})
+subbtn.addEventListener("click", () => {
+    operator = "-"
+})
+multbtn.addEventListener("click", () => {
+    operator = "*"
+})
+dividebtn.addEventListener("click", () => {
+    operator = "/"
 })
 
 // returns num when corresponding button pressed
@@ -71,15 +87,21 @@ for (let i =0; i <= 9; i++) {
     button[i].value = i
 
     button[i].addEventListener("click", (e) => {
-        if (!operatorPushed){
-            updateDisplay(button[i].value)
-            var1 = parseInt(display.textContent)
-        }
         if (display.textContent == `0`){
             display.textContent = "0"
         }
-        if (operatorPushed){
 
+        if (operatorPushed){
+            updateDisplay(button[i].value)
+            var1 = parseInt(display.textContent)
+            console.log(`var1: ${var1}`)
+        }
+
+        if (!operatorPushed){
+            display.textContent = ""
+            updateDisplay(button[i].value)
+            var2 = parseInt(display.textContent)
+            console.log(`var2: ${var2}`)
         }
         
     })
