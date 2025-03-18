@@ -81,25 +81,32 @@ dividebtn.addEventListener("click", () => {
     operator = "/"
 })
 
+
 // returns num when corresponding button pressed
 for (let i =0; i <= 9; i++) {
     const button = document.querySelectorAll(".num")
     button[i].value = i
 
     button[i].addEventListener("click", (e) => {
+
         // stops multiple zeros
         if (display.textContent == `0`){
             display.textContent = "0"
         }
+
         // if not pushed keep updating var1
         if (!operatorPushed()){
             updateDisplay(button[i].value)
             var1 = parseInt(display.textContent)
             console.log(`var1: ${var1}`)
         }
+
         // if pushed update var2
         if (operatorPushed()){
-            display.textContent = ""
+            // only refreshes display fully if it just turned to var2
+            if (display.textContent == var1){
+                display.textContent = ""
+            }
             updateDisplay(button[i].value)
             var2 = parseInt(display.textContent)
             console.log(`var2: ${var2}`)
