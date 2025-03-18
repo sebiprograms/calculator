@@ -63,9 +63,19 @@ function operatorPushed() {
     }
 }
 
+function divideZero(var2) {
+    if (var2 == 0) {
+        return true
+    } else {
+        return false
+    }
+}
 
 // operator recieved from button id, then called on eventlistener
 function operate(var1, operator, var2) {
+    if (divideZero(var2)){
+        display.textContent = "Error divided by zero"
+    }
     if (operator == "*") {
         var1 = multiply(var1, var2)
     } else if (operator == "/") {
@@ -102,8 +112,11 @@ dividebtn.addEventListener("click", () => {
 })
 equals.addEventListener("click", () => {
     var1 = operate(var1, operator, var2)
+    operator = "next"
     var2 = undefined
+
     console.log(var1)
+    display.textContent = var1
 })
 
 
