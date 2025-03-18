@@ -19,6 +19,9 @@ function multiply(var1, var2) {
 }
 
 function divide(var1, var2) {
+    if (divideZero(var2)){
+        return "Error / by zero"
+    }
     if (var2 == undefined){
         return var1 / var1
     }
@@ -64,7 +67,7 @@ function operatorPushed() {
 }
 
 function divideZero(var2) {
-    if (var2 == 0) {
+    if (var2 === 0) {
         return true
     } else {
         return false
@@ -73,9 +76,7 @@ function divideZero(var2) {
 
 // operator recieved from button id, then called on eventlistener
 function operate(var1, operator, var2) {
-    if (divideZero(var2)){
-        display.textContent = "Error divided by zero"
-    }
+
     if (operator == "*") {
         var1 = multiply(var1, var2)
     } else if (operator == "/") {
