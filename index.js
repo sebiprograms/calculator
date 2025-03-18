@@ -1,5 +1,5 @@
-let var1 = 0
-let var2 = 0
+let var1 = undefined
+let var2 = undefined
 let operator = ""
 const display = document.querySelector("#display")
 const clrbtn = document.querySelector("#clear")
@@ -8,22 +8,38 @@ const multbtn = document.querySelector("#multiply")
 const subbtn = document.querySelector("#subtract")
 const dividebtn = document.querySelector("#divide")
 const equals = document.querySelector("#operate")
+
+// arthimetic logic
 function multiply(var1, var2) {
-    // did it like this so that var1 is set to answer and ready for the nxt equation
+    if (var2 == undefined){
+        return var1 * var1
+    }
+    temp = var1
+    var1 = temp * var2
+}
+
+function divide(var1, var2) {
+    if (var2 == undefined){
+        return var1 / var1
+    }
+    temp = var1
+    var1 = temp / var2
+}
+
+function add(var1, var2) {
+    if (var2 == undefined){
+        return var1 + var1
+    }
     temp = var1
     var1 = temp + var2
 }
 
-function divide(var1, var2) {
-    return var1 / var2
-}
-
-function add(var1, var2) {
-    return var1 + var2
-}
-
 function subtract(var1,var2) {
-    return var1-var2
+    if (var2 == undefined){
+        return var1 - var1
+    }
+    temp = var1
+    var1 = temp - var2
 }
 
 // outputs text to calc display
@@ -59,6 +75,8 @@ function operate(var1, operator, var2) {
     } else if (operator == "-") {
         subtract(var1, var2)
     }
+
+    display.textContent = var1
 }
 
 
@@ -79,6 +97,9 @@ multbtn.addEventListener("click", () => {
 })
 dividebtn.addEventListener("click", () => {
     operator = "/"
+})
+equals.addEventListener("click", () => {
+    operate(var1, operator, var2)
 })
 
 
