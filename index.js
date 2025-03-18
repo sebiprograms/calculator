@@ -28,7 +28,7 @@ function subtract(var1,var2) {
 
 // outputs text to calc display
 function updateDisplay(input) {
-    display.textContent += `${input}`
+    display.textContent += input
 }
 
 // Resets vars and display
@@ -40,7 +40,11 @@ function clear() {
 }
 // returns boolean depending on if arthimetic operator has been selected
 function operatorPushed() {
-
+    if (operator == ""){
+        return false
+    } else {
+        return true
+    }
 }
 
 
@@ -67,10 +71,13 @@ for (let i =0; i <= 9; i++) {
     button[i].value = i
 
     button[i].addEventListener("click", (e) => {
-        if (display.textContent == ``){
-            parseInt(display.textContent)
+        if (!operatorPushed){
+            updateDisplay(button[i].value)
+            var1 = parseInt(display.textContent)
         }
-        updateDisplay(button[i].value)
+        if (display.textContent == `0`){
+            display.textContent = "0"
+        }
         if (operatorPushed){
 
         }
