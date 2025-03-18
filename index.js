@@ -75,6 +75,9 @@ function operate(var1, operator, var2) {
     } else if (operator == "-") {
         var1 = subtract(var1, var2)
     }
+    // makes the next operate logic work properly
+    operator = ""
+
     return var1
 }
 
@@ -99,6 +102,7 @@ dividebtn.addEventListener("click", () => {
 })
 equals.addEventListener("click", () => {
     var1 = operate(var1, operator, var2)
+    var2 = undefined
     console.log(var1)
 })
 
