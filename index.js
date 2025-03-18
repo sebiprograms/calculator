@@ -87,17 +87,18 @@ for (let i =0; i <= 9; i++) {
     button[i].value = i
 
     button[i].addEventListener("click", (e) => {
+        // stops multiple zeros
         if (display.textContent == `0`){
             display.textContent = "0"
         }
-
-        if (operatorPushed){
+        // if not pushed keep updating var1
+        if (!operatorPushed()){
             updateDisplay(button[i].value)
             var1 = parseInt(display.textContent)
             console.log(`var1: ${var1}`)
         }
-
-        if (!operatorPushed){
+        // if pushed update var2
+        if (operatorPushed()){
             display.textContent = ""
             updateDisplay(button[i].value)
             var2 = parseInt(display.textContent)
