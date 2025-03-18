@@ -12,35 +12,34 @@ const equals = document.querySelector("#operate")
 // arthimetic logic
 function multiply(var1, var2) {
     if (var2 == undefined){
-        return var1 * var1
+       return var1 * var1
     }
-    temp = var1
+    
     // allows to do another equation on answer
-    var1 = temp * var2
+    return temp * var2
 }
 
 function divide(var1, var2) {
     if (var2 == undefined){
         return var1 / var1
     }
-    temp = var1
-    var1 = temp / var2
+    return temp / var2
 }
 
 function add(var1, var2) {
     if (var2 == undefined){
         return var1 + var1
     }
-    temp = var1
-    var1 = temp + var2
+
+    return temp + var2
 }
 
 function subtract(var1,var2) {
     if (var2 == undefined){
         return var1 - var1
     }
-    temp = var1
-    var1 = temp - var2
+
+    return var1 - var2
 }
 
 // outputs text to calc display
@@ -53,7 +52,7 @@ function clear() {
     var1 = undefined
     var2 = undefined
     operator = ""
-    display.textContent = ``
+    display.textContent = ""
 }
 // returns boolean depending on if arthimetic operator has been selected
 function operatorPushed() {
@@ -68,16 +67,15 @@ function operatorPushed() {
 // operator recieved from button id, then called on eventlistener
 function operate(var1, operator, var2) {
     if (operator == "*") {
-        multiply(var1, var2)
+        var1 = multiply(var1, var2)
     } else if (operator == "/") {
-        divide(var1, var2)
+        var1 = divide(var1, var2)
     } else if (operator == "+") {
-        add(var1, var2)
+        var1 = add(var1, var2)
     } else if (operator == "-") {
-        subtract(var1, var2)
+        var1 = subtract(var1, var2)
     }
-
-    display.textContent = var1
+    return var1
 }
 
 
@@ -100,7 +98,8 @@ dividebtn.addEventListener("click", () => {
     operator = "/"
 })
 equals.addEventListener("click", () => {
-    operate(var1, operator, var2)
+    var1 = operate(var1, operator, var2)
+    console.log(var1)
 })
 
 
