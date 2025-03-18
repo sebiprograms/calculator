@@ -15,6 +15,7 @@ function multiply(var1, var2) {
         return var1 * var1
     }
     temp = var1
+    // allows to do another equation on answer
     var1 = temp * var2
 }
 
@@ -49,8 +50,8 @@ function updateDisplay(input) {
 
 // Resets vars and display
 function clear() {
-    var1 = 0
-    var2 = 0
+    var1 = undefined
+    var2 = undefined
     operator = ""
     display.textContent = ``
 }
@@ -111,8 +112,8 @@ for (let i =0; i <= 9; i++) {
     button[i].addEventListener("click", (e) => {
 
         // stops multiple zeros
-        if (display.textContent == `0`){
-            display.textContent = "0"
+        if (display.textContent == 0){
+            display.textContent = ""
         }
 
         // if not pushed keep updating var1
