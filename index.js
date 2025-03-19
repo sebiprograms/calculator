@@ -19,9 +19,6 @@ function multiply(var1, var2) {
 }
 
 function divide(var1, var2) {
-    if (divideZero(var2)){
-        return "Error / by zero"
-    }
     if (var2 == undefined){
         return var1 / var1
     }
@@ -80,6 +77,10 @@ function operate(var1, operator, var2) {
     if (operator == "*") {
         var1 = multiply(var1, var2)
     } else if (operator == "/") {
+        if (divideZero(var2)){
+            console.log("Tried to divide by zero")
+            return undefined
+        }
         var1 = divide(var1, var2)
     } else if (operator == "+") {
         var1 = add(var1, var2)
@@ -113,11 +114,17 @@ dividebtn.addEventListener("click", () => {
 })
 equals.addEventListener("click", () => {
     var1 = operate(var1, operator, var2)
-    operator = "next"
+    // zero division logic, else is the normal case, if var1 is undefined after solving then zero division occured
+    if (var1 == undefined) {
+        display.textContent = "tried to divide by zero"
+        operator = ""
+    } else {
+        display.textContent = var1
+        operator = "next"
+    }
     var2 = undefined
 
     console.log(var1)
-    display.textContent = var1
 })
 
 
@@ -128,9 +135,12 @@ for (let i =0; i <= 9; i++) {
 
     button[i].addEventListener("click", (e) => {
 
-        // stops multiple zeros
+        // stops multiple zeros, and also makes sure we clear the zero divison error before input var1 again
         if (display.textContent == 0){
             display.textContent = ""
+        } else if (display.textContent == "tried to divide by zero"){
+            var1 = undefined
+            clear()
         }
 
         // if not pushed keep updating var1
