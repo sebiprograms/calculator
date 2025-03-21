@@ -1,0 +1,21 @@
+#calculator {
+  align-self: center;
+  border-color: black;
+  border-style: solid;
+  width:40%;
+  
+}
+#display {
+  width: 90%;
+  height: 40px;
+}
+.container {
+  display: flex;
+}
+
+.num {
+  border: 1px, rgb(0, 0, 0) ;
+  padding: 10%;
+  border-radius: 50px;
+  
+}
