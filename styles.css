@@ -3,6 +3,8 @@
   border-color: black;
   border-style: solid;
   width:40%;
+  max-width: 400px;
+  min-width: 250px;
   display: flex;
   flex-direction: column;
   
@@ -15,11 +17,20 @@
 
 .container {
   display: flex;
+  justify-content: center;
+  width: 100%;
+
 }
 
 .num {
   border: 1px, rgb(0, 0, 0) ;
   padding: 10%;
   border-radius: 50px;
-  
+
+}
+
+.operator {
+  border: 1px;
+  border-radius: 50px;
+  padding: 10%;
 }
